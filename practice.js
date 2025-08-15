@@ -1,3 +1,6 @@
+const gameScores = require("./gameScores");
+
+
 /***********************
  * Challenge 1 (HOF + gameScores):
  * Return an array of all MVP names from the dataset, including duplicates for each time they appear.
