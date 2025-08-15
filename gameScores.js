@@ -1,7 +1,7 @@
 // data/gameScores.js
 
-const gameScores = {
-  match1: {
+const gameScores = [
+  {
     date: '2025-01-12',
     homeTeam: 'Raptors',
     awayTeam: 'Falcons',
@@ -11,7 +11,7 @@ const gameScores = {
     attendance: 15200,
     ticketRevenueUSD: 182500,
   },
-  match2: {
+  {
     date: '2025-01-14',
     homeTeam: 'Sharks',
     awayTeam: 'Raptors',
@@ -21,7 +21,7 @@ const gameScores = {
     attendance: 16450,
     ticketRevenueUSD: 210000,
   },
-  match3: {
+  {
     date: '2025-01-16',
     homeTeam: 'Falcons',
     awayTeam: 'Sharks',
@@ -31,7 +31,7 @@ const gameScores = {
     attendance: 14900,
     ticketRevenueUSD: 175400,
   },
-  match4: {
+  {
     date: '2025-01-18',
     homeTeam: 'Lions',
     awayTeam: 'Raptors',
@@ -41,7 +41,7 @@ const gameScores = {
     attendance: 17100,
     ticketRevenueUSD: 205000,
   },
-  match5: {
+  {
     date: '2025-01-20',
     homeTeam: 'Raptors',
     awayTeam: 'Sharks',
@@ -51,7 +51,7 @@ const gameScores = {
     attendance: 17000,
     ticketRevenueUSD: 215300,
   },
-  match6: {
+  {
     date: '2025-01-23',
     homeTeam: 'Falcons',
     awayTeam: 'Lions',
@@ -61,7 +61,7 @@ const gameScores = {
     attendance: 15800,
     ticketRevenueUSD: 190000,
   },
-  match7: {
+  {
     date: '2025-01-25',
     homeTeam: 'Sharks',
     awayTeam: 'Falcons',
@@ -71,7 +71,7 @@ const gameScores = {
     attendance: 16200,
     ticketRevenueUSD: 220000,
   },
-  match8: {
+  {
     date: '2025-01-27',
     homeTeam: 'Lions',
     awayTeam: 'Sharks',
@@ -81,7 +81,7 @@ const gameScores = {
     attendance: 15950,
     ticketRevenueUSD: 192000,
   },
-  match9: {
+  {
     date: '2025-01-29',
     homeTeam: 'Raptors',
     awayTeam: 'Lions',
@@ -91,7 +91,7 @@ const gameScores = {
     attendance: 16800,
     ticketRevenueUSD: 200400,
   },
-  match10: {
+  {
     date: '2025-02-01',
     homeTeam: 'Falcons',
     awayTeam: 'Raptors',
@@ -101,7 +101,7 @@ const gameScores = {
     attendance: 17300,
     ticketRevenueUSD: 210700,
   },
-  match11: {
+  {
     date: '2025-02-03',
     homeTeam: 'Sharks',
     awayTeam: 'Lions',
@@ -111,7 +111,7 @@ const gameScores = {
     attendance: 15000,
     ticketRevenueUSD: 180000,
   },
-  match12: {
+  {
     date: '2025-02-05',
     homeTeam: 'Lions',
     awayTeam: 'Falcons',
@@ -121,7 +121,7 @@ const gameScores = {
     attendance: 16000,
     ticketRevenueUSD: 195000,
   },
-  match13: {
+  {
     date: '2025-02-07',
     homeTeam: 'Raptors',
     awayTeam: 'Sharks',
@@ -131,7 +131,7 @@ const gameScores = {
     attendance: 17500,
     ticketRevenueUSD: 225000,
   },
-  match14: {
+  {
     date: '2025-02-09',
     homeTeam: 'Falcons',
     awayTeam: 'Raptors',
@@ -141,7 +141,7 @@ const gameScores = {
     attendance: 15250,
     ticketRevenueUSD: 185000,
   },
-  match15: {
+  {
     date: '2025-02-11',
     homeTeam: 'Sharks',
     awayTeam: 'Falcons',
@@ -151,7 +151,7 @@ const gameScores = {
     attendance: 16700,
     ticketRevenueUSD: 215000,
   },
-  match16: {
+  {
     date: '2025-02-13',
     homeTeam: 'Lions',
     awayTeam: 'Raptors',
@@ -161,7 +161,7 @@ const gameScores = {
     attendance: 15400,
     ticketRevenueUSD: 186000,
   },
-  match17: {
+  {
     date: '2025-02-15',
     homeTeam: 'Raptors',
     awayTeam: 'Lions',
@@ -171,7 +171,7 @@ const gameScores = {
     attendance: 16900,
     ticketRevenueUSD: 205500,
   },
-  match18: {
+  {
     date: '2025-02-17',
     homeTeam: 'Falcons',
     awayTeam: 'Sharks',
@@ -181,7 +181,7 @@ const gameScores = {
     attendance: 15050,
     ticketRevenueUSD: 179500,
   },
-  match19: {
+  {
     date: '2025-02-19',
     homeTeam: 'Sharks',
     awayTeam: 'Raptors',
@@ -191,7 +191,7 @@ const gameScores = {
     attendance: 16050,
     ticketRevenueUSD: 198000,
   },
-  match20: {
+  {
     date: '2025-02-21',
     homeTeam: 'Lions',
     awayTeam: 'Falcons',
@@ -201,6 +201,6 @@ const gameScores = {
     attendance: 17150,
     ticketRevenueUSD: 212000,
   },
-};
+];
 
 module.exports = gameScores;
