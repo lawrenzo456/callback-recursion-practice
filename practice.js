@@ -1,6 +1,7 @@
-const gameScores = require("./gameScores");
+const gameScores = require('./gameScores');
 
-
+// const gameScoresArr = Object.keys(gameScores).map((key) => [key, gameScores[key]]);
+// console.log(gameScoresArr);
 /***********************
  * Challenge 1 (HOF + gameScores):
  * Return an array of all MVP names from the dataset, including duplicates for each time they appear.
@@ -8,15 +9,23 @@ const gameScores = require("./gameScores");
  */
 // Plan Your Approach:
 /*
-1.
+1.have to return an array with all the MVPs, so probably map - 
+sifting through the key valiues in an array
 2.
 3.
 */
-function listAllMVPs(data) {}
+//example of map summarized 
+function listAllMVPs(data) {
+    const arrMVP = data.map(obj =>obj['mvp']);
+    // for (let i = 0; i < gameScores.length; i++) {
+    //     // console.log(gameScores[i]['mvp']);
+    //     arrMVP.push(gameScores[i]['mvp']);
+    // }
+    
+    return arrMVP;
+}
 // console.log(listAllMVPs(gameScores));
 // Expected: ['Liam Price', 'Ava Chen', 'Noah Garcia', ...] (length === number of matches)
-
-
 
 /***********************
  * Challenge 2 (HOF + gameScores):
@@ -25,15 +34,22 @@ function listAllMVPs(data) {}
  */
 // Plan Your Approach:
 /*
-1.
+1.sift through array of objects, create a sum variable, possibly use reduce method
+const initial value = 0;
+const sum = data.reduce(accumulator, currentValue) => accumulator + currentValue, initial Value);
+currentValue['mvp']
+
 2.
 3.
 */
-function totalTicketRevenue(data) {}
+//Example of Reduce summarized  = https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+function totalTicketRevenue(data) {
+    const initialValue = 0;
+    const sum = data.reduce((accumulator, currentValue) => accumulator + currentValue['ticketRevenueUSD'], initialValue)
+    return sum;
+}
 // console.log(totalTicketRevenue(gameScores));
 // Expected: <sum of all ticketRevenueUSD numbers>
-
-
 
 /***********************
  * Challenge 3 (HOF + gameScores):
@@ -41,16 +57,24 @@ function totalTicketRevenue(data) {}
  * Example: If 'match5' has 20000 attendance and that’s the maximum, return { match: 'match5', attendance: 20000 }.
  */
 // Plan Your Approach:
-/*
-1.
+/*can use a forloop, forEach, let obj in data {
+for (leti=0; i < data.length; i++)}
+1.let highestAttendance = data[0][attendance]
+start forloop at 1, if data[i][attendance] > highestAttendance, highestAttendance= data[i][attendance]
 2.
 3.
 */
-function highestAttendanceMatch(data) {}
+function highestAttendanceMatch(data) {
+    let highestAttendance = data[0]['attendance'];
+    for (let i = 1; i < data.length; i++) {
+        if (data[i]['attendance'] > highestAttendance) {
+            highestAttendance = data[i]['attendance']
+        }
+    }
+    return highestAttendance;
+}
 // console.log(highestAttendanceMatch(gameScores));
 // Expected: { match: '<matchKey>', attendance: <number> }
-
-
 
 /***********************
  * Challenge 4 (HOF + gameScores):
@@ -67,8 +91,6 @@ function homeWinDates(data) {}
 // console.log(homeWinDates(gameScores));
 // Expected: ['YYYY-MM-DD', 'YYYY-MM-DD', ...]
 
-
-
 /***********************
  * Challenge 5 (HOF + gameScores):
  * Calculate the average points per game (homeScore + awayScore) rounded to two decimals.
@@ -83,8 +105,6 @@ function homeWinDates(data) {}
 function averagePointsPerGame(data) {}
 // console.log(averagePointsPerGame(gameScores));
 // Expected: <number like 192.35>
-
-
 
 /***********************
  * Challenge 6 (HOF + gameScores):
@@ -101,8 +121,6 @@ function mvpAwardTally(data) {}
 // console.log(mvpAwardTally(gameScores));
 // Expected: { 'Ava Chen': <count>, 'Liam Price': <count>, ... }
 
-
-
 /***********************
  * Challenge 7 (HOF + gameScores):
  * Return an array of match keys sorted by descending ticket revenue.
@@ -117,8 +135,6 @@ function mvpAwardTally(data) {}
 function sortMatchesByRevenueDesc(data) {}
 // console.log(sortMatchesByRevenueDesc(gameScores));
 // Expected: ['matchXX', 'matchYY', ...] (sorted high → low)
-
-
 
 /***********************
  * Challenge 8 (HOF + gameScores):
@@ -135,8 +151,6 @@ function averageAttendancePerTeam(data) {}
 // console.log(averageAttendancePerTeam(gameScores));
 // Expected: { Raptors: <avg>, Falcons: <avg>, Sharks: <avg>, Lions: <avg> }
 
-
-
 /***********************
  * Challenge 9 (HOF + gameScores):
  * Find the median score margin across all matches (|homeScore - awayScore|).
@@ -151,8 +165,6 @@ function averageAttendancePerTeam(data) {}
 function medianScoreMargin(data) {}
 // console.log(medianScoreMargin(gameScores));
 // Expected: <number>
-
-
 
 /***********************
  * Challenge 10 (HOF + gameScores):
@@ -169,8 +181,6 @@ function monthlyRevenueTotals(data) {}
 // console.log(monthlyRevenueTotals(gameScores));
 // Expected: { 'YYYY-MM': <sum>, 'YYYY-MM': <sum>, ... }
 
-
-
 /***********************
  * Challenge 11 (HOF + gameScores):
  * Return an array of match keys where either team scored at least a given threshold (default 110).
@@ -185,8 +195,6 @@ function monthlyRevenueTotals(data) {}
 function matchesWithHighScoringTeam(data, threshold = 110) {}
 // console.log(matchesWithHighScoringTeam(gameScores, 110));
 // Expected: ['matchXX', 'matchYY', ...]
-
-
 
 /***********************
  * Challenge 12 (HOF + gameScores):
@@ -203,8 +211,6 @@ function totalPointsPerTeam(data) {}
 // console.log(totalPointsPerTeam(gameScores));
 // Expected: { TeamName: <points>, ... }
 
-
-
 /***********************
  * Challenge 13 (HOF + gameScores):
  * Return an array of all unique team names present in the dataset.
@@ -219,8 +225,6 @@ function totalPointsPerTeam(data) {}
 function uniqueTeams(data) {}
 // console.log(uniqueTeams(gameScores));
 // Expected: ['Falcons', 'Lions', 'Raptors', 'Sharks'] (order not enforced unless you sort)
-
-
 
 /***********************
  * Challenge 14 (HOF + gameScores):
@@ -237,8 +241,6 @@ function homeWinRates(data) {}
 // console.log(homeWinRates(gameScores));
 // Expected: { TeamName: 0.xyz, ... }
 
-
-
 /***********************
  * Challenge 15 (HOF + gameScores):
  * Return an array of objects { date, winner, loser, margin } for each match.
@@ -253,8 +255,6 @@ function homeWinRates(data) {}
 function matchSummaries(data) {}
 // console.log(matchSummaries(gameScores));
 // Expected: [{ date, winner, loser, margin }, ...]
-
-
 
 /***********************
  * Challenge 16 (Recursion + gameScores):
@@ -271,8 +271,6 @@ function getValueRecursive(data, matchKey, pathArray) {}
 // console.log(getValueRecursive(gameScores, 'match5', ['ticketRevenueUSD']));
 // Expected: <number>
 
-
-
 /***********************
  * Challenge 17 (Recursion + gameScores):
  * Recursively create a deep clone of the entire dataset object (no shared references).
@@ -287,8 +285,6 @@ function getValueRecursive(data, matchKey, pathArray) {}
 function deepCloneGameScores(data) {}
 // const clone = deepCloneGameScores(gameScores);
 // Expected: structurally equal, different references
-
-
 
 /***********************
  * Challenge 18 (Recursion + gameScores):
@@ -305,8 +301,6 @@ function countMatchesAboveTotal(data, threshold) {}
 // console.log(countMatchesAboveTotal(gameScores, 200));
 // Expected: <count>
 
-
-
 /***********************
  * Challenge 19 (Recursion + gameScores):
  * Determine the highest ticket revenue among all matches without using array methods.
@@ -321,8 +315,6 @@ function countMatchesAboveTotal(data, threshold) {}
 function maxRevenueRecursive(data) {}
 // console.log(maxRevenueRecursive(gameScores));
 // Expected: <max number>
-
-
 
 /***********************
  * Challenge 20 (Recursion + gameScores):
@@ -339,8 +331,6 @@ function filterMatchKeysRecursive(data, predicate) {}
 // console.log(filterMatchKeysRecursive(gameScores, m => m.attendance > 17000));
 // Expected: ['matchXX', 'matchYY', ...]
 
-
-
 /***********************
  * Challenge 21 (HOF + gameScores):
  * Categorize matches into score margin ranges (e.g., 0–5, 6–10, 11–15, ...) and return counts per range.
@@ -355,8 +345,6 @@ function filterMatchKeysRecursive(data, predicate) {}
 function scoreMarginBuckets(data, step = 5) {}
 // console.log(scoreMarginBuckets(gameScores, 5));
 // Expected: { '0-5': <count>, '6-10': <count>, ... }
-
-
 
 /***********************
  * Challenge 22 (HOF + gameScores):
@@ -373,8 +361,6 @@ function topMvpsByTotalRevenue(data, topN = 3) {}
 // console.log(topMvpsByTotalRevenue(gameScores, 3));
 // Expected: [{ mvp, totalRevenue }, ...] length <= 3
 
-
-
 /***********************
  * Challenge 23 (HOF + gameScores):
  * Return the match keys for a specific month (YYYY-MM) where attendance ≥ a given threshold.
@@ -390,8 +376,6 @@ function matchesInMonthWithAttendance(data, monthYYYYMM, minAttendance) {}
 // console.log(matchesInMonthWithAttendance(gameScores, '2025-02', 16500));
 // Expected: ['matchXX', 'matchYY']
 
-
-
 /***********************
  * Challenge 24 (HOF + gameScores):
  * Compute net point differential per team (pointsFor - pointsAgainst) and return the top two team names.
@@ -406,8 +390,6 @@ function matchesInMonthWithAttendance(data, monthYYYYMM, minAttendance) {}
 function topTeamsByPointDifferential(data, topN = 2) {}
 // console.log(topTeamsByPointDifferential(gameScores, 2));
 // Expected: ['TeamA', 'TeamB']
-
-
 
 /***********************
  * Challenge 25 (Recursion + Memoization + gameScores):
