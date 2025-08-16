@@ -14,15 +14,15 @@ sifting through the key valiues in an array
 2.
 3.
 */
-//example of map summarized 
+//example of map summarized
 function listAllMVPs(data) {
-    const arrMVP = data.map(obj =>obj['mvp']);
-    // for (let i = 0; i < gameScores.length; i++) {
-    //     // console.log(gameScores[i]['mvp']);
-    //     arrMVP.push(gameScores[i]['mvp']);
-    // }
-    
-    return arrMVP;
+  const arrMVP = data.map((obj) => obj['mvp']);
+  // for (let i = 0; i < gameScores.length; i++) {
+  //     // console.log(gameScores[i]['mvp']);
+  //     arrMVP.push(gameScores[i]['mvp']);
+  // }
+
+  return arrMVP;
 }
 // console.log(listAllMVPs(gameScores));
 // Expected: ['Liam Price', 'Ava Chen', 'Noah Garcia', ...] (length === number of matches)
@@ -44,9 +44,13 @@ currentValue['mvp']
 */
 //Example of Reduce summarized  = https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
 function totalTicketRevenue(data) {
-    const initialValue = 0;
-    const sum = data.reduce((accumulator, currentValue) => accumulator + currentValue['ticketRevenueUSD'], initialValue)
-    return sum;
+  const initialValue = 0;
+  const sum = data.reduce(
+    (accumulator, currentValue) =>
+      accumulator + currentValue['ticketRevenueUSD'],
+    initialValue
+  );
+  return sum;
 }
 // console.log(totalTicketRevenue(gameScores));
 // Expected: <sum of all ticketRevenueUSD numbers>
@@ -65,13 +69,13 @@ start forloop at 1, if data[i][attendance] > highestAttendance, highestAttendanc
 3.
 */
 function highestAttendanceMatch(data) {
-    let highestAttendance = data[0]['attendance'];
-    for (let i = 1; i < data.length; i++) {
-        if (data[i]['attendance'] > highestAttendance) {
-            highestAttendance = data[i]['attendance']
-        }
+  let highestAttendance = data[0]['attendance'];
+  for (let i = 1; i < data.length; i++) {
+    if (data[i]['attendance'] > highestAttendance) {
+      highestAttendance = data[i]['attendance'];
     }
-    return highestAttendance;
+  }
+  return highestAttendance;
 }
 // console.log(highestAttendanceMatch(gameScores));
 // Expected: { match: '<matchKey>', attendance: <number> }
@@ -83,12 +87,43 @@ function highestAttendanceMatch(data) {
  */
 // Plan Your Approach:
 /*
+mapping a new array based on if homescore > away score, push date
+
+const winDates = (arr, index) => arr.map(arr, index) {
+   if(arr[index]['homeScore'] > arr[index]['awayScore'] {
+    return arr[index]['date']}
+
+}
 1.
 2.
 3.
-*/
-function homeWinDates(data) {}
+*/ //this works, wanted to try with map
+// function homeWinDates(data) {
+//     const winDates = [];
+//     for (let i = 0; i < data.length; i++) {
+//         if(data[i]['homeScore'] > data[i]['awayScore']) {
+//             winDates.push(data[i]['date']);
+//         }
+//     }
+//     return winDates;
+// }
+function homeWinDates(data) {
+  //QUESTION: for some reason, the greater than sign is returning the less than result...
+  const winDates = data.map((el) => {
+    if (el['homeScore'] > el['awayScore']) return el['date'];
+    //  console.log(`${el['homeScore']} and ${el['awayScore']}`);
+    // console.log(`${el['date']}`);
+  });
+  return winDates;
+}
+
+// const homeWinDates = (arr, index) => arr.map((arr, index) {
+//     if ((arr[index]['homeScore']) > (arr[index]['awayScore'])) {
+
+//         return arr[index]['date']});
+// }
 // console.log(homeWinDates(gameScores));
+
 // Expected: ['YYYY-MM-DD', 'YYYY-MM-DD', ...]
 
 /***********************
@@ -99,10 +134,17 @@ function homeWinDates(data) {}
 // Plan Your Approach:
 /*
 1.
-2.
+2.returning an array of the calculations, so pulling the sum of the home and away scores, dividing that by two, and pushing that to a new array
 3.
 */
-function averagePointsPerGame(data) {}
+function averagePointsPerGame(data) {
+  const avgScores = data.map((el) => {
+    return (el['homeScore'] + el['awayScore'] / 2).toFixed(2);
+    // console.log(`${el['homeScore']} and ${el['awayScore']}`);
+    // console.log(`${el['date']}`);
+  });
+  return avgScores;
+}
 // console.log(averagePointsPerGame(gameScores));
 // Expected: <number like 192.35>
 
