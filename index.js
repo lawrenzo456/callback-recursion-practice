@@ -118,6 +118,7 @@ function countVowels(word, count = 0) {
 
 // Problem 15
 // Write a recursive function `sumDigits` that takes a positive integer and returns the sum of its digits.
+//num.toString().length;
 
 // Problem 16
 // Create a recursive function `countOccurrences` that takes an array and a target value, returning how many times the target appears in the array.
@@ -125,6 +126,7 @@ function countVowels(word, count = 0) {
 // Problem 17
 // Implement a recursive function `range` that takes two numbers (a, b) and returns an array of all integers between them, inclusive.
 
+//would this be tree recursion?
 // Problem 18
 // Write a recursive function `deepCount` that returns the number of elements in a nested array (counting all elements at all levels).
 
