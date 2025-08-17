@@ -107,13 +107,22 @@ const winDates = (arr, index) => arr.map(arr, index) {
 //     }
 //     return winDates;
 // }
+// --
+// function homeWinDates(data) {
+//   //QUESTION: for some reason, the greater than sign is returning the less than result...
+//   const winDates = data.map((el) => {
+//     if (el['homeScore'] > el['awayScore']) return el['date'];
+//      console.log(`${el['homeScore']} and ${el['awayScore']}`);
+//     console.log(`${el['date']}`);
+//   });
+//   return winDates;
+// }
+
+// -- 
 function homeWinDates(data) {
-  //QUESTION: for some reason, the greater than sign is returning the less than result...
-  const winDates = data.map((el) => {
-    if (el['homeScore'] > el['awayScore']) return el['date'];
-    //  console.log(`${el['homeScore']} and ${el['awayScore']}`);
-    // console.log(`${el['date']}`);
-  });
+  let winDates = data.filter((el) => el['homeScore'] > el['awayScore']);
+  console.log(winDates);
+  winDates = winDates.map((el) => el['date']);
   return winDates;
 }
 
@@ -122,7 +131,7 @@ function homeWinDates(data) {
 
 //         return arr[index]['date']});
 // }
-// console.log(homeWinDates(gameScores));
+console.log(homeWinDates(gameScores));
 
 // Expected: ['YYYY-MM-DD', 'YYYY-MM-DD', ...]
 

@@ -74,10 +74,29 @@ function countVowels(word, count = 0) {
 // function, then executes the callback after a 1-second delay with the greeting
 // "Hello, [name]!".
 
+// function delayedGreeting (name, callback) {
+//   console.log("Hello, " +name);
+//   setTimeout(callback(name),1000);
+// }
+
+// function testName(name) {console.log("your dog is a cat!");}
+// console.log(delayedGreeting('Jack', testName('egg')));
 // Problem 4
+
 // Write a function `filterByLength` that takes an array of strings and a number,
 // then returns a new array with only strings longer than the given number.
 // Use `filter()`.
+function filterByLength(array, stringLength = 1) {
+  //filter the array to put strings, maybe typeof string && string.length > x
+  const longString = array.filter(
+    (item) => typeof item === 'string' && item.length > stringLength
+  );
+  return longString;
+}
+
+const arr4 = ['egg', 'a', 3, 7, 'b', 'potato', {}, []];
+// console.log(filterByLength(arr4, 0))
+
 
 // Problem 5
 // Create a recursive function `reverseString` that reverses any string passed to it.
