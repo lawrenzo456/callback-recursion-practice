@@ -97,36 +97,145 @@ function filterByLength(array, stringLength = 1) {
 const arr4 = ['egg', 'a', 3, 7, 'b', 'potato', {}, []];
 // console.log(filterByLength(arr4, 0))
 
-
 // Problem 5
 // Create a recursive function `reverseString` that reverses any string passed to it.
+/*will take in a string and reverse it, insteda of charat use string[0], break case is string size = 0 cause keep slicing the string, instead of splicing, passing in the index of 0, and need to use the method that adds a letter to the beginning of the string
+single recursion seems easier
+apple should go to elppa, so apple char[length-1] = newstring [0]
+if index is 0 for new string, then that'll be iterated
+
+*/
+function reverseString(string, newString = '', index = string.length - 1) {
+  if (string.length <= 0) {
+    return newString;
+  }
+  newString = newString + string[string.length - 1];
+  console.log(newString);
+  console.log(string);
+  console.log(string.slice(0, -1));
+  return reverseString(string.slice(0, -1), newString, index);
+}
+
+let word = 'apple';
+// console.log(reverseString(word));
 
 // Problem 6
 // Implement a function `processNumbers` that takes an array of numbers and two callbacks.
 //  It should apply the first callback to even numbers and the second to odd numbers, returning
 // a new array.
+/*array of numbers, two callbacks, returning new array to even # and odd #, so even +2, odd+2
+ */
+function processNumbers(
+  arr = [],
+  callbackEven,
+  callbackOdd,
+  indexE = 0,
+  indexO = 1,
+  newArr = []
+) {
+  if (arr.length <= 1) {
+    return newArr;
+  }
+  newArr.push(callbackEven(arr[indexE]));
+  console.log(callbackEven(arr[indexE]));
+  newArr.push(callbackOdd(arr[indexO]));
+  console.log(callbackOdd(arr[indexO]));
+
+  console.log(arr);
+  // console.log(arr.length)
+  console.log(newArr);
+  arr.shift();
+  // console.log(arr.length)
+  // console.log(arr);
+  // console.log(newArr);
+  arr.shift();
+  console.log(arr.length);
+
+  console.log(arr);
+
+  return (
+    arr,
+    callbackEven(arr[indexE]),
+    callbackOdd(arr[indexO]),
+    indexE,
+    indexO,
+    newArr
+  );
+}
+
+function adjustE(number) {
+  return number + 2;
+}
+function adjustO(number) {
+  return number + 4;
+}
+
+const num6 = [1, 2, 3, 4, 5, 10];
+// console.log(processNumbers(num6, adjustE, adjustO));
 
 // Problem 7
 // Write a function `sumSquares` that uses `reduce()` to calculate the sum of squares of all
 //  numbers in an array.
+/*
+ */
+function sumSquares(arr) {
+  const sum = arr.reduce((total, currentValue) => total + currentValue ** 2, 0);
+  return sum;
+}
+
+const arr7 = [2, 3, 4];
+// console.log(arr7.reduce((total, currentValue)=> total+currentValue**2,0));
+// console.log(sumSquares(arr7));
 
 // Problem 8
 // Create a function `countdown` that uses recursion to log numbers from a given number down to 0.
+/*
+ */
+
+function countdown(num, output = '') {
+  if (num === 0) {
+    output += 'boom!';
+    return output;
+  }
+  if (!num > 0) return 'pos number needed';
+  else {
+    output += `${num} `;
+    return countdown(num - 1, output);
+  }
+}
+// console.log(countdown(8))
 
 // Problem 9
 // Implement a higher-order function `applyTwice` that takes a function and a value, and applies the
 // function to the value twice.
+/*
+ */
+function applyTwice(value, callback) {
+  return callback(callback(value));
+}
+// console.log(applyTwice(4, x=>x*2));
 
 // Problem 10
 // Write a function `findFirstPositive` that uses `find()` to locate the first positive number in an array.
+/*
+ */
+function findFirstPositive(arr) {
+  return arr.find((x) => x > 0);
+}
+const arr10 = [2, 4, 5];
+// console.log(findFirstPositive(arr10));
 
 // Problem 11
 // Create a recursive function `flattenArray` that takes a nested array and returns a flattened version
 // (one level deep).
+/*
+ */
 
 // Problem 12
 // Implement a function `asyncMultiply` that takes two numbers and a callback, then uses `setTimeout` to
 //  call the callback with the product after 500ms.
+/*
+ */
 
 // Problem 13
 // Write a function `allTruthy` that uses `every()` to check if all elements in an array are truthy.
